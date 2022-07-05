@@ -1,8 +1,11 @@
 <?php
 
-$arr = [ 1, 4 => 2, 3];
+require_once '../PaymentGateway/Stripe/Transaction.php';
+require_once '../PaymentGateway/Paddle/CustomerProfile.php';
+require_once '../PaymentGateway/Paddle/Transaction.php';
+require_once '../Notification/Email.php';
 
-$obj = (object) $arr;
+use PaymentGateway\Paddle\Transaction;
 
-$key = 4;
-var_dump($obj->$key, $obj->{0});
+var_dump(new Transaction());
+echo 'trova3';
