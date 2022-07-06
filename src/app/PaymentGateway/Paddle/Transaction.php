@@ -9,21 +9,30 @@ use App\Enums\Status;
 
 class Transaction
 {
-    private string $status;
-
-    public function __construct()
-    {
-        $this->setStatus(Status::PENDING);
+    private float $amount;
+    public function __construct(
+        float $amount
+    )
+    { 
+        $this->amount = $amount;
     }
 
-    public function setStatus(string $status): self
+    public function process(): void
     {
-        if (!isset(Status::ALL_STATUS[$status])) {
-            throw new \InvalidArgumentException("The `{$status}` is not a valid status.");
-        }
+        echo 'Processing $' . $this->amount . ' transaction </br>';
 
-        $this->status = $status;
+        $this->generateReceipt();
 
-        return $this;
+        $this->sendEmail();
+    }
+
+    private function generateReceipt(): void
+    {
+
+    }
+
+    private function sendEmail(): void
+    {
+
     }
 }
