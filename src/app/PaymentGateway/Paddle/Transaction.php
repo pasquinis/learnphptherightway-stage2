@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PaymentGateway\Paddle;
+namespace App\PaymentGateway\Paddle;
 
-use Notification\Email;
+use App\Notification\Email;
 
 class Transaction
 {

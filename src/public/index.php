@@ -1,11 +1,11 @@
 <?php
 
-require_once '../PaymentGateway/Stripe/Transaction.php';
-require_once '../PaymentGateway/Paddle/CustomerProfile.php';
-require_once '../PaymentGateway/Paddle/Transaction.php';
-require_once '../Notification/Email.php';
+require __DIR__ . '/../vendor/autoload.php';
 
-use PaymentGateway\Paddle\Transaction;
+use App\PaymentGateway\Paddle\Transaction;
 
 var_dump(new Transaction());
-echo 'trova3';
+
+$ramsey = new \Ramsey\Uuid\UuidFactory();
+
+echo $ramsey->uuid4();
