@@ -4,7 +4,7 @@ namespace App;
 
 class FancyOven
 {
-    public function __construct(private $toaster)
+    public function __construct(private ToasterPro $toaster)
     {
         
     }
