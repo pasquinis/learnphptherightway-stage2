@@ -4,5 +4,5 @@ namespace App\Render;
 
 use App\Render\Field;
 
-class Boolean extends Field
+abstract class Boolean extends Field
 {}
