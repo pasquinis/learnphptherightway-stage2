@@ -1,10 +1,11 @@
 <?php
 
-use App\Collector\CollectionAgency;
-use App\Collector\DebtCollectionService;
+use App\Invoice\Invoice;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$service = new DebtCollectionService();
+$invoice = new Invoice(7);
 
-echo $service->collectDebt(new CollectionAgency()) . PHP_EOL;
+$invoice->amount = 17;
+
+echo $invoice->amount . PHP_EOL;
