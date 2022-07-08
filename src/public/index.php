@@ -4,8 +4,12 @@ use App\Invoice\Invoice;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$invoice = new Invoice(7);
+$invoice = new Invoice();
 
-$invoice->amount = 17;
+$invoice->amount = 15;
 
-echo $invoice->amount . PHP_EOL;
+var_dump(isset($invoice->amount));
+
+$invoice->receipt = 20;
+
+unset($invoice->receipt);

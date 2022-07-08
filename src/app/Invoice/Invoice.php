@@ -6,16 +6,12 @@ namespace App\Invoice;
 
 class Invoice
 {
-    protected float $amount;
+    protected array $data = [];
 
-    public function __construct(float $amount)
-    {
-       $this->amount = $amount; 
-    }
     public function __get(string $name)
     {
-        if (property_exists($this, $name)) {
-            return $this->$name;
+        if (array_key_exists($name, $this->data)) {
+            return $this->data[$name];
         }
 
         return null;
@@ -23,8 +19,18 @@ class Invoice
 
     public function __set($name, $value)
     {
-        if (property_exists($this, $name)) {
-            $this->$name = $value;
-        }
+        $this->data[$name] = $value;
+    }
+
+    public function __isset($name)
+    {
+        var_dump('isset');
+        return array_key_exists($name, $this->data);
+    }
+
+    public function __unset($name)
+    {
+        var_dump('unset');
+        unset($this->data[$name]);
     }
 }
