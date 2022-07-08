@@ -6,10 +6,6 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $invoice = new Invoice();
 
-$invoice->amount = 15;
+$invoice->process(7, 'Transaction 1');
 
-var_dump(isset($invoice->amount));
-
-$invoice->receipt = 20;
-
-unset($invoice->receipt);
+// $invoice::processTwo(1, 2, 3);
