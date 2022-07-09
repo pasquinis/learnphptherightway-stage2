@@ -6,12 +6,12 @@ namespace App\Binding;
 
 class ClassA
 {
-    protected string $name = 'classA';
+    protected static string $name = 'classA';
 
-    public function getName(): string
+    public static function getName(): string
     {
-        var_dump(get_class($this));
-        return $this->name;
+        var_dump(self::class);
+        return static::$name;
     }
 
 }

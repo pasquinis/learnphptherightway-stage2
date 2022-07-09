@@ -6,5 +6,5 @@ namespace App\Binding;
 
 class ClassB extends ClassA
 {
-    protected string $name = 'classB';
+    protected static string $name = 'classB';
 }
