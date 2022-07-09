@@ -1,9 +1,12 @@
 <?php
 
-use App\Invoice\Invoice;
+use App\Binding\ClassA;
+use App\Binding\ClassB;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$invoice = new Invoice();
+$classA = new ClassA();
+$classB = new ClassB();
 
-echo $invoice . PHP_EOL;
+echo $classA->getName() . PHP_EOL;
+echo $classB->getName() . PHP_EOL;
