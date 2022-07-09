@@ -1,5 +1,6 @@
 <?php
 
+use App\Maker\AllInOneCoffeeMaker;
 use App\Maker\CappuccinoMaker;
 use App\Maker\CoffeeMaker;
 use App\Maker\LatteMaker;
@@ -16,3 +17,8 @@ $latteMaker->makeLatte();
 $cappuccinoMaker = new CappuccinoMaker();
 $cappuccinoMaker->makeCappuccino();
 $cappuccinoMaker->makeCoffee();
+
+$allInOneCoffeeMaker = new AllInOneCoffeeMaker();
+$allInOneCoffeeMaker->makeCoffee();
+$allInOneCoffeeMaker->makeLatte();
+$allInOneCoffeeMaker->makeCappuccino();
