@@ -1,17 +1,18 @@
 <?php
 
-use App\Binding\ClassA;
-use App\Binding\ClassB;
+use App\Maker\CappuccinoMaker;
+use App\Maker\CoffeeMaker;
+use App\Maker\LatteMaker;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// $classA = new ClassA();
-// $classB = new ClassB();
+$coffeeMaker = new CoffeeMaker();
+$coffeeMaker->makeCoffee();
 
-// echo $classA->getName() . PHP_EOL;
-// echo $classB->getName() . PHP_EOL;
-// echo ClassA::getName() . PHP_EOL;
-// echo ClassB::getName() . PHP_EOL;
+$latteMaker = new LatteMaker();
+$latteMaker->makeCoffee();
+$latteMaker->makeLatte();
 
-var_dump(ClassA::make());
-var_dump(ClassB::make());
+$cappuccinoMaker = new CappuccinoMaker();
+$cappuccinoMaker->makeCappuccino();
+$cappuccinoMaker->makeCoffee();
