@@ -10,5 +10,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 // echo $classA->getName() . PHP_EOL;
 // echo $classB->getName() . PHP_EOL;
-echo ClassA::getName() . PHP_EOL;
-echo ClassB::getName() . PHP_EOL;
+// echo ClassA::getName() . PHP_EOL;
+// echo ClassB::getName() . PHP_EOL;
+
+var_dump(ClassA::make());
+var_dump(ClassB::make());

@@ -8,10 +8,15 @@ class ClassA
 {
     protected static string $name = 'classA';
 
-    public static function getName(): string
+    public function getName(): string
     {
-        var_dump(self::class);
+        var_dump(static::class);
         return static::$name;
+    }
+
+    public static function make(): static
+    {
+        return new static;
     }
 
 }
