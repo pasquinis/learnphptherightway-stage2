@@ -20,5 +20,6 @@ $cappuccinoMaker->makeCoffee();
 
 $allInOneCoffeeMaker = new AllInOneCoffeeMaker();
 $allInOneCoffeeMaker->makeCoffee();
+$allInOneCoffeeMaker->setMilkType('long');
 $allInOneCoffeeMaker->makeLatte();
 $allInOneCoffeeMaker->makeCappuccino();
