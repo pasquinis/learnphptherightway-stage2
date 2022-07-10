@@ -1,25 +1,12 @@
 <?php
 
-use App\Maker\AllInOneCoffeeMaker;
-use App\Maker\CappuccinoMaker;
-use App\Maker\CoffeeMaker;
-use App\Maker\LatteMaker;
-
 require __DIR__ . '/../vendor/autoload.php';
 
-$coffeeMaker = new CoffeeMaker();
-$coffeeMaker->makeCoffee();
+$obj = new class(1, 2, 3) {
+    public function __construct(public int $x, public int $y, public int $z)
+    {
+        
+    }
+};
 
-$latteMaker = new LatteMaker();
-$latteMaker->makeCoffee();
-$latteMaker->makeLatte();
-
-$cappuccinoMaker = new CappuccinoMaker();
-$cappuccinoMaker->makeCappuccino();
-$cappuccinoMaker->makeCoffee();
-
-$allInOneCoffeeMaker = new AllInOneCoffeeMaker();
-$allInOneCoffeeMaker->makeCoffee();
-$allInOneCoffeeMaker->setMilkType('long');
-$allInOneCoffeeMaker->makeLatte();
-$allInOneCoffeeMaker->makeCappuccino();
+var_dump($obj);
