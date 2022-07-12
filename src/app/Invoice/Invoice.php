@@ -17,8 +17,22 @@ class Invoice
         $this->id = uniqid('invoice_');
     }
 
-    public function __sleep()
+    public function __serialize(): array
     {
-        return ['id', 'amount', 'description'];
+        return [
+            'id' => $this->id,
+            'amount' => $this->amount,
+            'description' => $this->description,
+            'cardNumber' => base64_encode($this->cardNumber),
+            'serialized' => true,
+        ];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->id = $data['id'];
+        $this->amount = $data['amount'];
+        $this->description = $data['description'];
+        $this->cardNumber = base64_decode($data['cardNumber']);
     }
 }
