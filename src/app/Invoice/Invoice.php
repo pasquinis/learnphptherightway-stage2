@@ -8,18 +8,17 @@ class Invoice
 {
     public string $id;
 
-    public function __construct()
+    public function __construct(
+        public float $amount,
+        public string $description,
+        public string $cardNumber
+    )
     {
         $this->id = uniqid('invoice_');
     }
 
-    public static function create(): static
+    public function __sleep()
     {
-        return new static();
-    }
-
-    public function __clone()
-    {
-        $this->id = uniqid('invoice_');
+        return ['id', 'amount', 'description'];
     }
 }
