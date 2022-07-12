@@ -6,12 +6,11 @@ namespace App\Invoice;
 
 class Invoice
 {
-    private string $id;
+    public string $id;
 
     public function __construct()
     {
         $this->id = uniqid('invoice_');
-        var_dump('__construct');
     }
 
     public static function create(): static
@@ -22,6 +21,5 @@ class Invoice
     public function __clone()
     {
         $this->id = uniqid('invoice_');
-        var_dump('__clone');
     }
 }
