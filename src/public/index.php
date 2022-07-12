@@ -1,12 +1,26 @@
 <?php
 
+use App\Invoice\Invoice;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-$obj = new class(1, 2, 3) {
-    public function __construct(public int $x, public int $y, public int $z)
-    {
-        
-    }
-};
+$invoice1 = new Invoice(25, 'Invoice');
+$invoice2 = new Invoice(25, 'Invoice');
 
-var_dump($obj);
+echo '$invoice1 == $invoice2' . PHP_EOL;
+var_dump($invoice1 == $invoice2);
+
+echo '$invoice1 === $invoice2' . PHP_EOL;
+var_dump($invoice1 === $invoice2);
+
+$invoice3 = $invoice1;
+echo '$invoice1 === $invoice3' . PHP_EOL;
+var_dump($invoice1 === $invoice3);
+
+var_dump($invoice3);
+var_dump($invoice1);
+
+$invoice3->amount = 100;
+
+var_dump($invoice3);
+var_dump($invoice1);
