@@ -1,15 +1,23 @@
 <?php
 
-use App\Invoice\Invoice;
+use App\ErrorHandling\Invoice;
+use App\ErrorHandling\Customer;
+use App\Exception\MissingBillingInfoException;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$invoice = new Invoice(25, 'Invoice number 1', 'secretValue');
+$invoice = new Invoice(new Customer());
 
-$str = serialize($invoice);
-
-echo $str . PHP_EOL;
-
-$invoice2 = unserialize($str);
-
-var_dump($invoice2);
+try {
+    $invoice->process(100);
+    $invoice->process(0);
+}
+catch (MissingBillingInfoException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+catch (InvalidArgumentException $e) {
+    echo $e->getMessage() . PHP_EOL;
+}
+finally {
+    echo 'Finally block' . PHP_EOL;
+}
