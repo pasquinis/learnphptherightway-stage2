@@ -1,23 +1,11 @@
 <?php
 
-use App\ErrorHandling\Invoice;
-use App\ErrorHandling\Customer;
-use App\Exception\MissingBillingInfoException;
-
 require __DIR__ . '/../vendor/autoload.php';
 
-$invoice = new Invoice(new Customer());
+$dateTime = new DateTime('now');
 
-try {
-    $invoice->process(100);
-    $invoice->process(0);
-}
-catch (MissingBillingInfoException $e) {
-    echo $e->getMessage() . PHP_EOL;
-}
-catch (InvalidArgumentException $e) {
-    echo $e->getMessage() . PHP_EOL;
-}
-finally {
-    echo 'Finally block' . PHP_EOL;
-}
+echo $dateTime->getTimezone()->getName() . ' - ' . $dateTime->format(DateTime::ISO8601) . PHP_EOL;
+
+$dateTime->setTimezone(new DateTimeZone('Europe/Rome'));
+
+echo $dateTime->getTimezone()->getName() . ' - ' . $dateTime->format(DateTime::ISO8601) . PHP_EOL;
