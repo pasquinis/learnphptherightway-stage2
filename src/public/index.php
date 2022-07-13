@@ -2,11 +2,13 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$date = '12/05/2022 3:30';
-$dateTime = new DateTime(str_replace('/', '-', $date));
+$date1 = '12/05/2022 3:30 AM';
+$date2 = '12/05/2022 3:35 AM';
 
-echo $dateTime->getTimezone()->getName() . ' - ' . $dateTime->format(DateTime::ISO8601) . PHP_EOL;
+$dateTime1 = new DateTime($date1);
+$dateTime2 = new DateTime($date2);
 
-$dateTime = DateTime::createFromFormat('d/m/Y g:i', $date);
-
-echo $dateTime->getTimezone()->getName() . ' - ' . $dateTime->format(DateTime::ISO8601) . PHP_EOL;
+var_dump($dateTime1 < $dateTime2);
+var_dump($dateTime1 > $dateTime2);
+var_dump($dateTime1 == $dateTime2);
+var_dump($dateTime1 <=> $dateTime2);
