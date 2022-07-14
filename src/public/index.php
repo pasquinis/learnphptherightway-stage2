@@ -1,17 +1,17 @@
 <?php
 
 use App\Routing\Router;
+use App\Routing\Classes\Home;
+use App\Routing\Classes\Invoice;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $router = new Router();
 
-$router->register('/', function() {
-    echo 'Home';
-});
+$router
+    ->register('/', [ Home::class, 'index'])
+    ->register('/invoices', [ Invoice::class, 'index'])
+    ->register('/invoices/create', [ Invoice::class, 'create']);
 
-$router->register('/invoices', function() {
-    echo 'Invoices';
-});
 
 echo $router->resolver($_SERVER['REQUEST_URI']);
