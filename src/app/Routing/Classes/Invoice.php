@@ -13,10 +13,12 @@ class Invoice
 
     public function create(): string
     {
-        return '<form action="/invoices/create" method="post">
+        return <<<HTML
+        <form action="/invoices/create" method="post">
             <label>amount</label>
             <input type="text" name="amount"></input>
-            </form>';
+        </form>
+HTML;
     }
 
     public function store()
