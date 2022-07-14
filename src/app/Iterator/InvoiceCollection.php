@@ -4,35 +4,37 @@ namespace App\Iterator;
 
 class InvoiceCollection implements \Iterator
 {
+    private int $key;
+
     public function __construct(public array $invoiceList) {}
 
 	public function current()
     {
         echo __METHOD__ . PHP_EOL;
-        return current(($this->invoiceList));
+        return $this->invoiceList[$this->key];
 	}
 	
 	public function key()
     { 
         echo __METHOD__ . PHP_EOL;
-        return key($this->invoiceList);
+        return $this->key;
 	}
 	
 	public function next()
     {
         echo __METHOD__ . PHP_EOL;
-        next($this->invoiceList);
+        ++$this->key;
 	}
 	
 	public function rewind()
     {
         echo __METHOD__ . PHP_EOL;
-        reset($this->invoiceList);
+        $this->key = 0;
 	}
 	
 	public function valid()
     {
         echo __METHOD__ . PHP_EOL;
-        return current($this->invoiceList) != false;
+        return isset($this->invoiceList[$this->key]);
 	}
 }
