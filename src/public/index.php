@@ -20,4 +20,7 @@ echo $router->resolver(
     $_SERVER['REQUEST_URI']
 );
 
+echo '<pre>';
 var_dump(($_SESSION));
+var_dump(($_COOKIE));
+echo '</pre>';
