@@ -11,6 +11,11 @@ $invoiceCollection = new InvoiceCollection([
     new Invoice(35)
 ]);
 
-foreach($invoiceCollection as $invoice) {
-    echo $invoice->amount . ' ' . $invoice->id . PHP_EOL;
+
+function printInvoices(iterable $collection) {
+    foreach($collection as $invoice) {
+        echo $invoice->amount . ' ' . $invoice->id . PHP_EOL;
+    }
 }
+
+printInvoices($invoiceCollection);
