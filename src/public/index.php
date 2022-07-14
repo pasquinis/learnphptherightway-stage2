@@ -1,21 +1,17 @@
 <?php
 
-use App\Iterator\Invoice;
-use App\Iterator\InvoiceCollection;
+use App\Routing\Router;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$invoiceCollection = new InvoiceCollection([
-    new Invoice(15),
-    new Invoice(25),
-    new Invoice(35)
-]);
+$router = new Router();
 
+$router->register('/', function() {
+    echo 'Home';
+});
 
-function printInvoices(iterable $collection) {
-    foreach($collection as $invoice) {
-        echo $invoice->amount . ' ' . $invoice->id . PHP_EOL;
-    }
-}
+$router->register('/invoices', function() {
+    echo 'Invoices';
+});
 
-printInvoices($invoiceCollection);
+echo $router->resolver($_SERVER['REQUEST_URI']);
