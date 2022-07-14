@@ -6,6 +6,7 @@ use App\Routing\Classes\Invoice;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+session_start();
 $router = new Router();
 
 $router
@@ -18,3 +19,5 @@ echo $router->resolver(
     strtolower($_SERVER['REQUEST_METHOD']),
     $_SERVER['REQUEST_URI']
 );
+
+var_dump(($_SESSION));
