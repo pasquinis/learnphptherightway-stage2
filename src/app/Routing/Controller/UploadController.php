@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Routing\Classes;
+declare(strict_types=1);
 
-class Upload
+namespace App\Routing\Controller;
+
+use App\Routing\View;
+
+class UploadController
 {
-    public function index(): string
+    public function index(): View
     {
-        return <<<FORM
-        <form action='/upload/store' method='post' enctype='multipart/form-data'>
-            <input type='file' name='receipt[]' />
-            <input type='file' name='receipt[]' />
-            <button type='submit'>Upload</button>
-        </form>
-FORM;
+        return View::make('upload/index');
     }
 
     public function store()
