@@ -21,4 +21,12 @@ class InvoiceController
     {
         var_dump($_POST);
     }
+
+    public function download()
+    {
+        header('Content-Type: application/pdf');
+        header('Content-Disposition: attachment;filename="invoice12.pdf"');
+
+        readfile(STORAGE_PATH . '/sample.pdf');
+    }
 } 

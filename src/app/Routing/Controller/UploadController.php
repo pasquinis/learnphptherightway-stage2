@@ -16,11 +16,14 @@ class UploadController
     public function store()
     {
         for ($i = 0; $i < count($_FILES['receipt']['name']); $i++) {
+            if (empty($_FILES['receipt']['tmp_name'][$i])) {
+                continue;
+            }
             $destinationFilenName = STORAGE_PATH . '/' . $_FILES['receipt']['name'][$i];
             move_uploaded_file($_FILES['receipt']['tmp_name'][$i], $destinationFilenName);
-            echo '<pre>';
-            var_dump(pathinfo($destinationFilenName));
-            echo '</pre>';
+
+            header('Location: /upload');
+            exit;
         }
     }
 }
