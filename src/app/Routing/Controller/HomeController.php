@@ -17,7 +17,7 @@ class HomeController
     public function index(): View
     {
         try {
-            $db = new PDO('mysql:host=db;dbname=my_db', 'root', 'root');
+            $db = new PDO('mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_DATABASE'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
         }
         catch (PDOException $e) {
             throw new PDOException($e->getMessage(), $e->getCode());

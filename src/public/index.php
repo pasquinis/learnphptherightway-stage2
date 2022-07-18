@@ -1,18 +1,20 @@
 <?php
 
-use App\Routing\Router;
-use App\Routing\View;
 use App\Routing\Controller\HomeController;
 use App\Routing\Controller\InvoiceController;
 use App\Routing\Controller\UploadController;
 use App\Routing\Exception\RouteNotFoundException;
+use App\Routing\Router;
+use App\Routing\View;
+use Dotenv\Dotenv;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-session_start();
 define('STORAGE_PATH', __DIR__ . '/../storage');
 define('VIEW_PATH', __DIR__ . '/../views');
 
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 
 try {
     $router = new Router();
