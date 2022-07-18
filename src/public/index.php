@@ -34,3 +34,7 @@ catch (RouteNotFoundException $e) {
     http_response_code(404);
     echo View::make('error/404');
 }
+catch (Exception $e) {
+    http_response_code(500);
+    echo View::make('error/500', ['error' => $e]);
+}

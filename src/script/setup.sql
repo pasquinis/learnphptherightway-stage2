@@ -20,3 +20,8 @@ CREATE TABLE invoices (
         ON DELETE SET NULL
         ON UPDATE CASCADE
 );
+
+INSERT INTO users (email, full_name, is_active, created_at)
+    VALUES  ('one@email.com', 'John One', 1, NOW()),
+            ('two@email.com', 'John Two', 1, NOW()),
+            ('three@email.com', 'John Three', 1, NOW());

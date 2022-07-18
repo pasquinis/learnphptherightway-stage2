@@ -8,4 +8,8 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer/composer /usr/bin/composer /usr/bin/composer
 
+RUN docker-php-ext-install pdo pdo_mysql
+
+#RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
 WORKDIR /var/www
